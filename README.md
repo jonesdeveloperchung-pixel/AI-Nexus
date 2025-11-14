@@ -140,8 +140,16 @@ To run the tests for each module:
 *   Unified Authentication & Authorization Service.
 *   API Gateway.
 
-## Contributing
-Contributions are welcome! Please refer to the `development_and_test_plan.md` and `Design_Specification.md` for project guidelines.
+## Screenshots
+
+### ChatGPT Integration – Prompt History View
+![ChatGPT History 1](https://github.com/jonesdeveloperchung-pixel/AI-Nexus/blob/main/Screenshot/ChatGPT_Locally_History.png)
+
+### ChatGPT Integration – Prompt History Expanded
+![ChatGPT History 2](https://github.com/jonesdeveloperchung-pixel/AI-Nexus/blob/main/Screenshot/ChatGPT_Locally_History_2.png)
+
+### ChatGPT Integration – Text Generation Interface
+![ChatGPT Text Generate](https://github.com/jonesdeveloperchung-pixel/AI-Nexus/blob/main/Screenshot/ChatGPT_Locally_Text_Generate.png)
 
 ## License
 MIT License
