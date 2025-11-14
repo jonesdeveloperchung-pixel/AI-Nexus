@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Writing Environment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            min-height: 150px;
+        }
+        select, input[type="submit"] {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        select {
+            background-color: #e9ecef;
+            color: #495057;
+            border: 1px solid #ced4da;
+            width: auto;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .response-area {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            white-space: pre-wrap; /* Preserve whitespace and line breaks */
+            word-wrap: break-word; /* Break long words */
+        }
+        .history-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .history-link:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Local AI Writing Assistant</h1>
+        <form action="/generate" method="post">
+            <textarea name="prompt" placeholder="Enter your writing prompt here..." required>{{ prompt_text }}</textarea>
+            <label for="language">Language:</label>
+            <select name="language" id="language">
+                <option value="English" {% if language == 'English' %}selected{% endif %}>English</option>
+                <option value="Simplified Chinese" {% if language == 'Simplified Chinese' %}selected{% endif %}>Simplified Chinese</option>
+                <option value="Traditional Chinese" {% if language == 'Traditional Chinese' %}selected{% endif %}>Traditional Chinese</option>
+            </select>
+            <label for="model">Model:</label>
+            <select name="model" id="model">
+                {% for m in available_models %}
+                    <option value="{{ m }}" {% if m == (model or default_model) %}selected{% endif %}>{{ m }}</option>
+                {% else %}
+                    <option value="">No models available (Is Ollama running?)</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Generate Text">
+        </form>
+
+        {% if response_text %}
+            <h2>Generated Response:</h2>
+            <div class="response-area">
+                {{ response_text }}
+            </div>
+        {% endif %}
+
+        {% if error_message %}
+            <div class="error-message">
+                {{ error_message }}
+            </div>
+        {% endif %}
+
+        <a href="/history" class="history-link">View Generation History</a>
+    </div>
+</body>
+</html>

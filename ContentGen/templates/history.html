@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generation History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+        }
+        .content-item {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border-left: 5px solid #007bff;
+        }
+        .content-item p {
+            margin: 5px 0;
+        }
+        .content-item strong {
+            color: #0056b3;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generation History</h1>
+
+        {% if content_history %}
+            {% for content in content_history %}
+                <div class="content-item">
+                    <p><strong>ID:</strong> {{ content.id }}</p>
+                    <p><strong>Timestamp:</strong> {{ content.timestamp }}</p>
+                    <p><strong>Language:</strong> {{ content.language }}</p>
+                    <p><strong>Prompt:</strong> {{ content.prompt }}</p>
+                    <p><strong>Response:</strong> {{ content.response }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No generated content history found.</p>
+        {% endif %}
+
+        <a href="/" class="back-link">Back to Generator</a>
+    </div>
+</body>
+</html>
