@@ -140,8 +140,16 @@ OPENAI_API_KEY=YOUR_OPENAI_API_KEY
 *   統一身份驗證與授權服務。
 *   API 閘道。
 
-## 貢獻
-歡迎貢獻！請參閱 `development_and_test_plan.md` 和 `Design_Specification.md` 以獲取專案指南。
+## Screenshots
+
+### ChatGPT Integration – Prompt History View
+![ChatGPT History 1](https://github.com/jonesdeveloperchung-pixel/AI-Nexus/blob/main/Screenshot/ChatGPT_Locally_History.png)
+
+### ChatGPT Integration – Prompt History Expanded
+![ChatGPT History 2](https://github.com/jonesdeveloperchung-pixel/AI-Nexus/blob/main/Screenshot/ChatGPT_Locally_History_2.png)
+
+### ChatGPT Integration – Text Generation Interface
+![ChatGPT Text Generate](https://github.com/jonesdeveloperchung-pixel/AI-Nexus/blob/main/Screenshot/ChatGPT_Locally_Text_Generate.png)
 
 ## 許可證
 MIT License
